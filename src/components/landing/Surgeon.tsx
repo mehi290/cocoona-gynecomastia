@@ -24,7 +24,7 @@ export function Surgeon() {
             className="w-full object-cover rounded-t-xl transition-transform duration-300 hover:scale-[1.02]"
           />
           <figcaption className="p-3 bg-secondary text-center text-xs font-medium text-muted-foreground border-t border-border">
-            Dr. Sanjay Parashar — Voted No. 1 Plastic Surgeon in the UAE (Arabian Business)
+            Dr. Sanjay Parashar, Voted No. 1 Plastic Surgeon in the UAE (Arabian Business)
           </figcaption>
         </figure>
 

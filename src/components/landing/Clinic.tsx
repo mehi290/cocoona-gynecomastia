@@ -18,7 +18,7 @@ export function Clinic() {
       <Rule />
 
       <p className="max-w-2xl text-base leading-relaxed">
-        {CLINIC.name}, Al Wasl Road, Dubai. An accredited day surgery facility — your procedure
+        {CLINIC.name}, Al Wasl Road, Dubai. An accredited day surgery facility, your procedure
         happens here, not at a third-party hospital.
       </p>
 

@@ -1,8 +1,8 @@
 export const CLINIC = {
   name: "Cocoona Centre for Aesthetic Transformation",
-  addressLine1: "Villa 898, Raaji Street – Al Wasl Road",
+  addressLine1: "Villa 898, Raaji Street, Al Wasl Road",
   addressLine2: "Dubai, United Arab Emirates",
-  hours: "Open daily, 11:00 – 22:00",
+  hours: "Open daily, 11:00 to 22:00",
   founded: "Founded 2008",
   rating: "4.3",
   reviewCount: "475",

@@ -27,7 +27,7 @@ const SCHEMA = {
       description: DESCRIPTION,
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Villa 898, Raaji Street – Al Wasl Road",
+        streetAddress: "Villa 898, Raaji Street, Al Wasl Road",
         addressLocality: "Dubai",
         addressCountry: "AE",
       },
@@ -64,7 +64,7 @@ const SCHEMA = {
       worksFor: { "@id": "#clinic" },
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Villa 898, Raaji Street – Al Wasl Road",
+        streetAddress: "Villa 898, Raaji Street, Al Wasl Road",
         addressLocality: "Dubai",
         addressCountry: "AE",
       },

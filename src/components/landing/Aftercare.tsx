@@ -32,7 +32,7 @@ export function Aftercare() {
           <UserCheck aria-hidden="true" className="text-accent size-5" />
           <h3 className="text-ink-foreground mt-3 font-serif text-base">A named person</h3>
           <p className="text-ink-muted mt-2 text-sm leading-relaxed">
-            Someone specific to reach — not a general reception line.
+            Someone specific to reach, not a general reception line.
           </p>
         </div>
       </div>
