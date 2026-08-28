@@ -15,7 +15,7 @@ export function StickyBar() {
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="border-ink-muted text-ink-foreground inline-flex h-12 items-center justify-center gap-2 border px-3 text-sm font-semibold"
+        className="border-ink-muted text-ink-foreground inline-flex h-12 items-center justify-center gap-2 border px-2 text-xs whitespace-nowrap sm:text-sm font-semibold"
       >
         <MessageCircle aria-hidden="true" className="size-4" />
         WhatsApp
