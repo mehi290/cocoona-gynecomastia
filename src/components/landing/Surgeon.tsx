@@ -1,5 +1,4 @@
-import surgeonPhoto from "@/assets/surgeon-placeholder.jpg";
-import { Section, SectionHeading, Rule, Placeholder } from "./primitives";
+import { Section, SectionHeading, Rule } from "./primitives";
 
 const CREDENTIALS = [
   "International Visiting Professor, American Society of Plastic Surgeons",
@@ -14,18 +13,18 @@ export function Surgeon() {
       <SectionHeading id="surgeon-heading">Your Surgeon</SectionHeading>
       <Rule />
 
-      <div className="grid gap-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] md:gap-12">
-        <figure className="m-0">
+      <div className="grid gap-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] md:gap-12 items-center">
+        <figure className="m-0 overflow-hidden rounded-xl border border-border bg-ink shadow-lg">
           <img
-            src={surgeonPhoto}
-            alt="Portrait placeholder for Dr. Sanjay Parashar, consultant plastic surgeon"
+            src="/dr.sanjay background.png"
+            alt="Portrait of Dr. Sanjay Parashar - Voted No. 1 Plastic Surgeon in the UAE"
             width={900}
             height={1100}
             loading="lazy"
-            className="border-border w-full border object-cover"
+            className="w-full object-cover rounded-t-xl transition-transform duration-300 hover:scale-[1.02]"
           />
-          <figcaption className="mt-2">
-            <Placeholder>[SURGEON_PHOTO_PLACEHOLDER — supply approved portrait]</Placeholder>
+          <figcaption className="p-3 bg-secondary text-center text-xs font-medium text-muted-foreground border-t border-border">
+            Dr. Sanjay Parashar — Voted No. 1 Plastic Surgeon in the UAE (Arabian Business)
           </figcaption>
         </figure>
 
@@ -41,9 +40,6 @@ export function Surgeon() {
                 {item}
               </li>
             ))}
-            <li className="border-border border-b pb-3 text-sm">
-              <Placeholder>[YEARS_IN_PRACTICE_PLACEHOLDER]</Placeholder>
-            </li>
           </ul>
 
           <blockquote className="border-accent text-primary mt-8 border-l-2 pl-5 text-lg leading-relaxed italic">
@@ -55,3 +51,4 @@ export function Surgeon() {
     </Section>
   );
 }
+

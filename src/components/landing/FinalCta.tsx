@@ -45,12 +45,21 @@ export function FinalCta() {
           </a>
         </div>
 
-        <p className="border-ink-border text-ink-muted mt-10 border-t pt-6 text-xs leading-relaxed">
-          {CLINIC.name} · {CLINIC.addressLine1}, {CLINIC.addressLine2} · {CLINIC.hours}
-          <br />
-          Results of any surgical procedure vary between individuals. All surgery carries risk;
-          suitability is determined at consultation.
-        </p>
+        <div className="border-ink-border mt-10 border-t pt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="inline-block rounded-md bg-white/95 p-2 border border-white/20 w-fit">
+            <img
+              src="/Cocoona logo.png"
+              alt="Cocoona Centre for Aesthetic Transformation"
+              className="h-8 w-auto object-contain"
+            />
+          </div>
+          <p className="text-ink-muted text-xs leading-relaxed">
+            {CLINIC.name} · {CLINIC.addressLine1}, {CLINIC.addressLine2} · {CLINIC.hours}
+            <br />
+            Results of any surgical procedure vary between individuals. All surgery carries risk;
+            suitability is determined at consultation.
+          </p>
+        </div>
       </div>
     </section>
   );

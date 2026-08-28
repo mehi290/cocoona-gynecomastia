@@ -14,8 +14,15 @@ export function Hero() {
     <section id="top" className="bg-ink text-ink-foreground scroll-mt-6 px-5 py-12 sm:px-8 md:py-20">
       <div className="mx-auto grid w-full max-w-5xl gap-8 md:grid-cols-2 md:items-start md:gap-14">
         <div className="md:col-start-2 md:row-start-1">
+          <div className="mb-5 inline-block rounded-lg bg-white/95 p-2.5 shadow-sm border border-white/20">
+            <img
+              src="/Cocoona logo.png"
+              alt="Cocoona Centre for Aesthetic Transformation"
+              className="h-10 w-auto object-contain sm:h-12"
+            />
+          </div>
           <p className="text-accent text-xs font-semibold tracking-[0.18em] uppercase">
-            Cocoona · Al Wasl Road, Dubai
+            Al Wasl Road, Dubai
           </p>
           <h1 className="text-ink-foreground mt-4 text-3xl sm:text-4xl md:text-5xl">
             Gynecomastia Surgery in Dubai

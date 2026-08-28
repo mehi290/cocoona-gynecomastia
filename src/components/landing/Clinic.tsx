@@ -1,9 +1,9 @@
-import { MapPin, Clock, Car, Navigation } from "lucide-react";
+import { MapPin, Clock, Navigation } from "lucide-react";
 import reception from "@/assets/clinic-reception.jpg";
 import theatre from "@/assets/clinic-theatre.jpg";
 import consult from "@/assets/clinic-consult.jpg";
 import { CLINIC, DIRECTIONS_URL, MAP_EMBED_URL } from "@/lib/clinic";
-import { Section, SectionHeading, Rule, Placeholder } from "./primitives";
+import { Section, SectionHeading, Rule } from "./primitives";
 
 const PHOTOS = [
   { src: reception, alt: "Reception area of the Cocoona clinic on Al Wasl Road" },
@@ -43,20 +43,6 @@ export function Clinic() {
               <div>
                 <dt className="text-primary font-semibold">Opening hours</dt>
                 <dd className="text-muted-foreground mt-1">{CLINIC.hours}</dd>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <Car aria-hidden="true" className="text-accent mt-0.5 size-4 shrink-0" />
-              <div>
-                <dt className="text-primary font-semibold">Parking & landmark</dt>
-                <dd className="text-muted-foreground mt-1 space-y-2">
-                  <span className="block">
-                    <Placeholder>[PARKING_DETAILS_PLACEHOLDER]</Placeholder>
-                  </span>
-                  <span className="block">
-                    <Placeholder>[NEAREST_LANDMARK_PLACEHOLDER]</Placeholder>
-                  </span>
-                </dd>
               </div>
             </div>
           </dl>

@@ -1,4 +1,3 @@
-import diagram from "@/assets/tissue-diagram.jpg";
 import { Section, SectionHeading, Rule } from "./primitives";
 
 export function Glandular() {
@@ -24,18 +23,19 @@ export function Glandular() {
 
         <figure className="m-0">
           <img
-            src={diagram}
-            alt="Clinical illustration comparing dense glandular chest tissue with diffuse fatty tissue in cross-section"
+            src="/gynecoma bfeor3.jpg"
+            alt="Cocoona Gynecomastia Surgery Before and After Patient Results"
             width={1200}
             height={800}
             loading="lazy"
-            className="border-ink-border w-full border bg-background"
+            className="border-ink-border w-full rounded-lg border bg-background shadow-lg object-cover"
           />
           <figcaption className="text-ink-muted mt-2 text-xs">
-            Illustration: glandular tissue (left) compared with fatty tissue (right).
+            Actual patient result: Before and after gynecomastia surgery at Cocoona.
           </figcaption>
         </figure>
       </div>
     </Section>
   );
 }
+
