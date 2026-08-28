@@ -1,5 +1,5 @@
 import { CalendarCheck, PhoneCall, UserCheck } from "lucide-react";
-import { Section, SectionHeading, Rule, Placeholder } from "./primitives";
+import { Section, SectionHeading, Rule } from "./primitives";
 
 export function Aftercare() {
   return (
@@ -18,7 +18,7 @@ export function Aftercare() {
           <CalendarCheck aria-hidden="true" className="text-accent size-5" />
           <h3 className="text-ink-foreground mt-3 font-serif text-base">Booked before you leave</h3>
           <p className="text-ink-muted mt-2 text-sm leading-relaxed">
-            <Placeholder>[FOLLOWUP_INTERVALS_PLACEHOLDER]</Placeholder>
+            Scheduled follow-up intervals to monitor your healing at every stage.
           </p>
         </div>
         <div className="border-ink-border border p-6">

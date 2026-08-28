@@ -6,9 +6,9 @@ export const CLINIC = {
   founded: "Founded 2008",
   rating: "4.3",
   reviewCount: "475",
-  phonePlaceholder: "[PHONE_NUMBER_PLACEHOLDER]",
-  phoneHref: "tel:[PHONE_NUMBER_PLACEHOLDER]",
-  whatsappNumber: "[PLACEHOLDER_NUMBER]",
+  phoneNumber: "+971 56 865 5598",
+  phoneHref: "tel:+971568655598",
+  whatsappNumber: "971568655598",
   formEndpoint: "[FORM_ENDPOINT_PLACEHOLDER]",
   mapsQuery: "Cocoona Centre for Aesthetic Transformation, Al Wasl Road, Dubai",
 } as const;

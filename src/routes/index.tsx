@@ -100,7 +100,6 @@ function LandingPage() {
     <main>
       <Hero />
       <Surgeon />
-      <Clinic />
       <Reviews />
       <Glandular />
       <Procedure />
@@ -108,6 +107,7 @@ function LandingPage() {
       <Cost />
       <Suitability />
       <Faq />
+      <Clinic />
       <FinalCta />
       <StickyBar />
     </main>

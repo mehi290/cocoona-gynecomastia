@@ -1,25 +1,34 @@
-import { MessageCircle, CalendarCheck } from "lucide-react";
-import { WHATSAPP_URL } from "@/lib/clinic";
+import { Phone, MessageCircle } from "lucide-react";
+import { CLINIC, WHATSAPP_URL } from "@/lib/clinic";
 
 export function StickyBar() {
   return (
-    <div className="border-ink-border bg-ink fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 gap-2 border-t p-2 md:hidden">
-      <a
-        href="#top"
-        className="bg-accent text-accent-foreground inline-flex h-12 items-center justify-center gap-2 px-2 text-xs font-semibold whitespace-nowrap sm:text-sm"
-      >
-        <CalendarCheck aria-hidden="true" className="size-4" />
-        Book Consultation
-      </a>
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="border-ink-muted text-ink-foreground inline-flex h-12 items-center justify-center gap-2 border px-2 text-xs whitespace-nowrap sm:text-sm font-semibold"
-      >
-        <MessageCircle aria-hidden="true" className="size-4" />
-        WhatsApp
-      </a>
-    </div>
+    <>
+      {/* Floating Call Button - Bottom Left */}
+      <div className="fixed bottom-5 left-4 sm:left-6 z-50">
+        <a
+          href={CLINIC.phoneHref}
+          aria-label="Call Clinic"
+          title="Call Clinic"
+          className="flex size-13 sm:size-14 items-center justify-center rounded-full bg-[#008000] text-white shadow-xl transition-all duration-200 hover:scale-110 hover:shadow-2xl active:scale-95"
+        >
+          <Phone className="size-6 sm:size-7 fill-white text-white" />
+        </a>
+      </div>
+
+      {/* Floating WhatsApp Button - Bottom Right */}
+      <div className="fixed bottom-5 right-4 sm:right-6 z-50">
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat on WhatsApp"
+          title="Chat on WhatsApp"
+          className="flex size-13 sm:size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl transition-all duration-200 hover:scale-110 hover:shadow-2xl active:scale-95"
+        >
+          <MessageCircle className="size-7 sm:size-8 fill-white text-[#25D366]" />
+        </a>
+      </div>
+    </>
   );
 }

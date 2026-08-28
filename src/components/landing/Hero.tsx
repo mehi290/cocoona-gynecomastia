@@ -4,7 +4,6 @@ import { ConsultForm } from "./ConsultForm";
 
 const BULLETS = [
   "Free private consultation, you'll be told your grade and what's realistic",
-  "Message on WhatsApp, no phone call needed",
   "Day surgery on Al Wasl Road, in and out the same day",
   "Follow-up scheduled before you leave, no chasing",
 ];
@@ -12,7 +11,7 @@ const BULLETS = [
 export function Hero() {
   return (
     <section id="top" className="relative bg-ink text-ink-foreground scroll-mt-6 overflow-hidden px-5 py-12 sm:px-8 md:py-20">
-      {/* Background Image with elegant overlay */}
+      {/* Background Image with overlay */}
       <div className="absolute inset-0 z-0">
         <img
           src="/gynecmastia hero.jpg"
@@ -24,13 +23,10 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto grid w-full max-w-5xl gap-8 md:grid-cols-2 md:items-start md:gap-14">
-        {/* Left Column: Branding, Headline, Subtitle, Bullets */}
+        {/* Left Column: Headline, Subtitle, Bullets */}
         <div className="space-y-6">
           <div>
-            <p className="text-accent text-xs font-semibold tracking-[0.18em] uppercase">
-              Al Wasl Road, Dubai
-            </p>
-            <h1 className="text-ink-foreground mt-3 text-3xl sm:text-4xl md:text-5xl">
+            <h1 className="text-ink-foreground text-3xl sm:text-4xl md:text-5xl font-serif">
               Gynecomastia Surgery in Dubai
             </h1>
           </div>
