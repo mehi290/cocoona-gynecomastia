@@ -6,7 +6,7 @@ export function StickyBar() {
     <div className="border-ink-border bg-ink fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 gap-2 border-t p-2 md:hidden">
       <a
         href="#top"
-        className="bg-accent text-accent-foreground inline-flex h-12 items-center justify-center gap-2 px-3 text-sm font-semibold"
+        className="bg-accent text-accent-foreground inline-flex h-12 items-center justify-center gap-2 px-2 text-xs font-semibold whitespace-nowrap sm:text-sm"
       >
         <CalendarCheck aria-hidden="true" className="size-4" />
         Book Consultation

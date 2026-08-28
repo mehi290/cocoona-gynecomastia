@@ -12,8 +12,8 @@ const BULLETS = [
 export function Hero() {
   return (
     <section id="top" className="bg-ink text-ink-foreground scroll-mt-6 px-5 py-12 sm:px-8 md:py-20">
-      <div className="mx-auto grid w-full max-w-5xl gap-10 md:grid-cols-2 md:items-start md:gap-14">
-        <div className="md:order-2">
+      <div className="mx-auto grid w-full max-w-5xl gap-8 md:grid-cols-2 md:items-start md:gap-14">
+        <div className="md:col-start-2 md:row-start-1">
           <p className="text-accent text-xs font-semibold tracking-[0.18em] uppercase">
             Cocoona · Al Wasl Road, Dubai
           </p>
@@ -25,8 +25,14 @@ export function Hero() {
             our accredited day surgery centre on Al Wasl Road. Assessment, procedure and follow-up
             under one roof — you see the surgeon, not a coordinator.
           </p>
+        </div>
 
-          <ul className="mt-7 space-y-3">
+        <div className="md:col-start-1 md:row-span-2 md:row-start-1">
+          <ConsultForm idPrefix="hero" />
+        </div>
+
+        <div className="md:col-start-2 md:row-start-2">
+          <ul className="space-y-3">
             {BULLETS.map((bullet) => (
               <li key={bullet} className="flex gap-3">
                 <Check aria-hidden="true" className="text-accent mt-1 size-4 shrink-0" />
@@ -35,7 +41,7 @@ export function Hero() {
             ))}
           </ul>
 
-          <p className="border-ink-border text-ink-muted mt-8 border-t pt-5 text-xs tracking-wide sm:text-sm">
+          <p className="border-ink-border text-ink-muted mt-7 border-t pt-5 text-xs tracking-wide sm:text-sm">
             {CLINIC.rating} ★ from {CLINIC.reviewCount} Google reviews
             <span className="text-accent mx-2">·</span>
             Al Wasl Road, Dubai
@@ -43,11 +49,8 @@ export function Hero() {
             {CLINIC.founded}
           </p>
         </div>
-
-        <div className="md:order-1">
-          <ConsultForm idPrefix="hero" />
-        </div>
       </div>
     </section>
+
   );
 }
