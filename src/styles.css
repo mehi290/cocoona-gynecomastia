@@ -101,7 +101,6 @@
   --sidebar-ring: oklch(0.7 0.088 78);
 }
 
-
 @layer base {
   * {
     border-color: var(--color-border);
@@ -110,5 +109,29 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  blockquote {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+  }
+
+  :where(a, button, input, textarea, select):focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 1.5rem;
   }
 }
+
