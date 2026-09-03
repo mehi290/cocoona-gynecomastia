@@ -29,12 +29,12 @@ export function Header() {
         </a>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-6 text-xs font-medium tracking-wide">
+        <nav className="hidden lg:flex items-center gap-6 text-xs sm:text-sm font-bold tracking-wide">
           {NAV_LINKS.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-ink-muted hover:text-accent transition-colors py-1"
+              className="text-ink-foreground hover:text-[#B5894B] transition-colors py-1 font-bold text-xs sm:text-sm"
             >
               {link.label}
             </a>
@@ -45,28 +45,28 @@ export function Header() {
         <div className="hidden sm:flex items-center gap-3">
           <a
             href={CLINIC.phoneHref}
-            className="inline-flex items-center gap-1.5 text-xs text-ink-muted hover:text-ink-foreground transition-colors px-2.5 py-1.5"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-ink-foreground hover:text-[#B5894B] transition-colors px-2 py-1.5 font-bold"
           >
-            <Phone className="size-3.5 text-accent" />
-            <span className="font-mono text-[11px]">{CLINIC.phoneNumber}</span>
+            <Phone className="size-4 text-[#B5894B]" />
+            <span className="font-mono text-xs sm:text-sm font-bold text-ink-foreground">{CLINIC.phoneNumber}</span>
           </a>
 
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-md bg-[#25D366]/20 border border-[#25D366]/40 px-3 py-1.5 text-xs font-semibold text-[#25D366] hover:bg-[#25D366]/30 transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-md bg-[#25D366]/20 border border-[#25D366]/40 px-3 py-1.5 text-xs sm:text-sm font-bold text-[#25D366] hover:bg-[#25D366]/30 transition-colors"
           >
-            <MessageCircle className="size-3.5 fill-[#25D366]" />
-            <span>WhatsApp</span>
+            <MessageCircle className="size-4 fill-[#25D366]" />
+            <span className="font-bold text-xs sm:text-sm">WhatsApp</span>
           </a>
 
           <a
             href="#top"
-            className="inline-flex items-center gap-1.5 rounded-md bg-accent text-accent-foreground px-3.5 py-1.5 text-xs font-semibold hover:opacity-90 transition-opacity shadow-sm"
+            className="inline-flex items-center gap-1.5 rounded-md bg-[#B5894B] text-white px-3.5 py-1.5 text-xs sm:text-sm font-bold hover:bg-[#9C733B] transition-colors shadow-sm"
           >
-            <CalendarCheck className="size-3.5" />
-            <span>Book Consult</span>
+            <CalendarCheck className="size-4" />
+            <span className="font-bold text-xs sm:text-sm">Book Your Consultation</span>
           </a>
         </div>
 
@@ -90,7 +90,7 @@ export function Header() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-ink-muted hover:text-accent py-2 text-sm font-medium border-b border-ink-border/40"
+                className="text-ink-foreground hover:text-[#B5894B] py-2 text-sm font-bold border-b border-ink-border/40"
               >
                 {link.label}
               </a>
@@ -100,10 +100,10 @@ export function Header() {
             <a
               href="#top"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 rounded-md bg-accent text-accent-foreground py-2.5 text-xs font-semibold"
+              className="w-full flex items-center justify-center gap-2 rounded-md bg-[#B5894B] text-white py-2.5 text-xs font-semibold hover:bg-[#9C733B]"
             >
               <CalendarCheck className="size-4" />
-              Book Private Consultation
+              Book Your Consultation
             </a>
             <a
               href={WHATSAPP_URL}

@@ -78,14 +78,14 @@
   --secondary-foreground: oklch(0.26 0.035 258);
   --muted: oklch(0.938 0.009 85);
   --muted-foreground: oklch(0.46 0.02 258);
-  /* restrained muted gold */
-  --accent: oklch(0.7 0.088 78);
-  --accent-foreground: oklch(0.22 0.03 258);
+  /* exact gold accent from screenshot (#B5894B) */
+  --accent: #B5894B;
+  --accent-foreground: #FFFFFF;
   --destructive: oklch(0.52 0.19 27);
   --destructive-foreground: oklch(0.98 0.005 85);
   --border: oklch(0.88 0.012 85);
   --input: oklch(0.86 0.012 85);
-  --ring: oklch(0.7 0.088 78);
+  --ring: #B5894B;
   /* dark section surface */
   --ink: oklch(0.22 0.03 258);
   --ink-foreground: oklch(0.965 0.008 85);

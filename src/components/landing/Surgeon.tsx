@@ -62,9 +62,9 @@ export function Surgeon() {
               <Award className="size-4 shrink-0 text-accent" />
               <span>Voted No.1 Plastic Surgeon in UAE (Arabian Business)</span>
             </div>
-            <h3 className="text-primary font-serif text-2xl sm:text-3xl">Dr. Sanjay</h3>
-            <p className="text-muted-foreground mt-0.5 text-sm tracking-wide">
-              MBBS, MS (General Surgery), DNB
+            <h3 className="text-primary font-serif text-2xl sm:text-3xl">Dr. Sanjay Parashar</h3>
+            <p className="text-muted-foreground mt-0.5 text-sm tracking-wide font-medium">
+              MBBS, MS (General Surgery), DNB, Plastic Surgeon
             </p>
           </div>
 

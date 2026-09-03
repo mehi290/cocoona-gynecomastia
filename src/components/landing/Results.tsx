@@ -1,5 +1,6 @@
+import { useRef, useState, useEffect } from "react";
 import { Section, SectionHeading, Rule } from "./primitives";
-import { ShieldCheck, CalendarCheck } from "lucide-react";
+import { ShieldCheck, CalendarCheck, ChevronLeft, ChevronRight } from "lucide-react";
 
 const CASES = [
   {
@@ -70,6 +71,42 @@ const CASES = [
 ];
 
 export function Results() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
+
+  function checkScroll() {
+    if (!scrollRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+    setCanScrollLeft(scrollLeft > 10);
+    setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 10);
+  }
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      if (!scrollRef.current) return;
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      if (scrollLeft + clientWidth >= scrollWidth - 25) {
+        scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        scrollRef.current.scrollBy({ left: 420, behavior: "smooth" });
+      }
+      setTimeout(checkScroll, 400);
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [isPaused]);
+
+  function scroll(direction: "left" | "right") {
+    if (!scrollRef.current) return;
+    const scrollAmount = direction === "left" ? -420 : 420;
+    scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    setTimeout(checkScroll, 350);
+  }
+
   return (
     <Section id="results" ariaLabelledBy="results-heading">
       <SectionHeading id="results-heading">Clinical Results & Case Studies</SectionHeading>
@@ -80,48 +117,84 @@ export function Results() {
         surgery centre on Al Wasl Road, Dubai.
       </p>
 
-      {/* Results Grid */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {CASES.map((item) => (
-          <div
-            key={item.id}
-            className="border-border bg-card overflow-hidden rounded-xl border shadow-md transition-all hover:shadow-lg flex flex-col"
-          >
-            {/* Case Header Badge */}
-            <div className="bg-secondary/60 border-b border-border px-4 py-3 flex items-center justify-between">
-              <span className="text-primary font-serif font-semibold text-sm">{item.title}</span>
-              <span className="bg-accent/15 text-accent text-[11px] font-semibold px-2.5 py-0.5 rounded-full border border-accent/20">
-                {item.grade}
-              </span>
-            </div>
+      {/* Horizontal Scrollable Carousel Container with Hover Pause */}
+      <div
+        className="relative group px-1"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {/* Left Arrow */}
+        <button
+          type="button"
+          onClick={() => scroll("left")}
+          disabled={!canScrollLeft}
+          aria-label="Scroll left case studies"
+          className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 flex size-10 items-center justify-center rounded-full bg-background border border-border text-foreground shadow-md transition-all duration-200 hover:scale-110 hover:bg-secondary disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+        >
+          <ChevronLeft className="size-5" />
+        </button>
 
-            {/* Image Container */}
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-secondary">
-              <img
-                src={item.image}
-                alt={item.title}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-              />
+        {/* Right Arrow */}
+        <button
+          type="button"
+          onClick={() => scroll("right")}
+          disabled={!canScrollRight}
+          aria-label="Scroll right case studies"
+          className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 flex size-10 items-center justify-center rounded-full bg-background border border-border text-foreground shadow-md transition-all duration-200 hover:scale-110 hover:bg-secondary disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+        >
+          <ChevronRight className="size-5" />
+        </button>
+
+        {/* Scroll Track */}
+        <div
+          ref={scrollRef}
+          onScroll={checkScroll}
+          className="flex gap-6 overflow-x-auto scrollbar-none py-2 px-1 scroll-smooth items-stretch"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {CASES.map((item) => (
+            <div
+              key={item.id}
+              className="border-border bg-card overflow-hidden rounded-xl border shadow-md transition-all hover:shadow-lg flex flex-col min-w-[300px] sm:min-w-[420px] max-w-[420px] shrink-0"
+            >
+              {/* Case Header Badge */}
+              <div className="bg-secondary/60 border-b border-border px-4 py-3 flex items-center justify-between">
+                <span className="text-primary font-serif font-semibold text-sm sm:text-base line-clamp-1">
+                  {item.title}
+                </span>
+                <span className="bg-[#B5894B]/15 text-[#B5894B] text-[11px] font-semibold px-2.5 py-0.5 rounded-full border border-[#B5894B]/20 shrink-0">
+                  {item.grade}
+                </span>
+              </div>
+
+              {/* Image Container */}
+              <div className="relative w-full h-[260px] sm:h-[320px] overflow-hidden bg-slate-950 flex items-center justify-center p-1">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Discretion Note & Call to Action */}
       <div className="mt-8 border-border bg-secondary/40 border rounded-xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <ShieldCheck className="size-5 text-accent shrink-0" />
+          <ShieldCheck className="size-5 text-[#B5894B] shrink-0" />
           <p className="text-xs font-semibold text-primary leading-relaxed">
             100% Patient Privacy Guaranteed.
           </p>
         </div>
         <a
           href="#top"
-          className="bg-accent text-accent-foreground hover:opacity-90 inline-flex h-10 items-center justify-center gap-2 rounded-md px-5 text-xs font-semibold tracking-wide shrink-0 transition-opacity"
+          className="bg-[#B5894B] text-white hover:bg-[#9C733B] inline-flex h-10 items-center justify-center gap-2 rounded-md px-5 text-xs font-semibold tracking-wide shrink-0 transition-colors"
         >
           <CalendarCheck className="size-4" />
-          Book Your Private Consultation
+          Book Your Consultation
         </a>
       </div>
     </Section>

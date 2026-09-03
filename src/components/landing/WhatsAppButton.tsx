@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { WHATSAPP_URL } from "@/lib/clinic";
 
 export function WhatsAppButton({
-  children = "Ask on WhatsApp",
+  children = "Book on WhatsApp",
   className,
 }: {
   children?: React.ReactNode;

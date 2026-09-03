@@ -110,8 +110,8 @@ export function ReviewPopup() {
           </div>
 
           <div className="flex items-center gap-1 text-[10px]">
-            <CheckCircle2 className="size-3 text-blue-500 fill-blue-500/20" />
-            <span className="font-semibold text-blue-600">5-Star Verified Patient Review</span>
+            <CheckCircle2 className="size-3 text-[#B5894B] fill-[#B5894B]/20" />
+            <span className="font-semibold text-[#B5894B]">475+ Verified Patient Reviews</span>
           </div>
 
           <p className="text-[11px] text-foreground leading-snug italic line-clamp-2">

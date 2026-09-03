@@ -60,9 +60,9 @@ export function Hero() {
           <div className="pt-2">
             <a
               href="#consultation"
-              className="inline-flex items-center justify-center rounded-xl bg-accent px-6 py-3.5 text-sm sm:text-base font-bold text-accent-foreground shadow-lg transition-all duration-200 hover:scale-[1.02] hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+              className="inline-flex items-center justify-center rounded-xl bg-[#B5894B] hover:bg-[#9C733B] px-6 py-3.5 text-sm sm:text-base font-bold text-white shadow-lg transition-all duration-200 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#B5894B] focus:ring-offset-2"
             >
-              Book your private consultation now
+              Book Your Private Consultation Now
             </a>
           </div>
         </div>

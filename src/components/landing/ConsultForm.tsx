@@ -263,11 +263,11 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-primary text-primary-foreground hover:bg-ink inline-flex h-10 w-full items-center justify-center rounded-md px-4 text-xs sm:text-sm font-semibold tracking-wide transition-colors disabled:opacity-70 cursor-pointer"
+              className="bg-[#B5894B] text-white hover:bg-[#9C733B] inline-flex h-10 w-full items-center justify-center rounded-md px-4 text-xs sm:text-sm font-semibold tracking-wide transition-colors disabled:opacity-70 cursor-pointer shadow-sm"
             >
-              {isSubmitting ? "Processing…" : "Book Consultation"}
+              {isSubmitting ? "Processing…" : "Book Your Consultation"}
             </button>
-            <WhatsAppButton>Ask on WhatsApp</WhatsAppButton>
+            <WhatsAppButton>Book on WhatsApp</WhatsAppButton>
           </div>
         </form>
 
