@@ -76,7 +76,7 @@ export function ReviewPopup() {
 
   return (
     <div
-      className={`fixed bottom-20 left-4 z-40 max-w-xs sm:max-w-sm rounded-xl bg-card/95 border border-border p-3.5 shadow-xl backdrop-blur-md transition-all duration-500 ease-out transform ${
+      className={`fixed bottom-4 left-4 z-50 max-w-xs sm:max-w-sm rounded-xl bg-card/95 border border-border p-3.5 shadow-xl backdrop-blur-md transition-all duration-500 ease-out transform ${
         isVisible
           ? "translate-y-0 opacity-100 scale-100"
           : "translate-y-6 opacity-0 scale-95 pointer-events-none"

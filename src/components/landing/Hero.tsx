@@ -10,7 +10,7 @@ const BULLETS = [
 
 export function Hero() {
   return (
-    <section id="top" className="relative bg-ink text-ink-foreground scroll-mt-6 overflow-hidden px-5 py-12 sm:px-8 md:py-16">
+    <section id="top" className="relative bg-ink text-ink-foreground scroll-mt-6 overflow-hidden px-4 py-8 sm:px-6 md:py-10">
       {/* Background Image with overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -22,9 +22,9 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/75 to-ink/40" />
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-5xl gap-8 md:grid-cols-2 md:items-start md:gap-12">
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-6 md:grid-cols-2 md:items-start md:gap-10">
         {/* Left Column: Headline, Subtitle, Bullets, Trust Card */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           {/* Top Trust Pill */}
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent backdrop-blur-sm">
             <Award className="size-3.5" />
