@@ -14,7 +14,6 @@ import { CLINIC, DIRECTIONS_URL, FORM_ENDPOINT } from "@/lib/clinic";
 import { WhatsAppButton } from "./WhatsAppButton";
 
 interface BookingData {
-  refId: string;
   name: string;
   phone: string;
   email: string;
@@ -42,16 +41,6 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
   const [pickerSlot, setPickerSlot] = useState(TIME_SLOTS[0]);
   const [bookingResult, setBookingResult] = useState<BookingData | null>(null);
 
-  // Generate Ref ID: COC- plus 6 uppercase alphanumerics
-  function generateRefId() {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    let result = "";
-    for (let i = 0; i < 6; i++) {
-      result += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return `COC-${result}`;
-  }
-
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
@@ -66,10 +55,7 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
     setIsSubmitting(true);
     setSendFailed(false);
 
-    const refId = generateRefId();
-
     const newBooking: BookingData = {
-      refId,
       name,
       phone,
       email,
@@ -100,7 +86,6 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
         mode: "no-cors",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify({
-          ref: refId,
           name,
           phone,
           email,
@@ -116,7 +101,10 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
 
     setBookingResult(newBooking);
     setIsSubmitting(false);
-    setIsSubmitted(true);
+
+    if (typeof window !== "undefined") {
+      window.location.href = "/thank-you";
+    }
   }
 
   function handleConfirmPicker() {
@@ -131,7 +119,7 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
   }
 
   const whatsappMessage = bookingResult
-    ? `Hi Cocoona Clinic, I booked a consultation (Ref: ${bookingResult.refId}).\nName: ${bookingResult.name}\nPhone: ${bookingResult.phone}\nEmail: ${bookingResult.email}\nTime: ${bookingResult.preferredTime}`
+    ? `Hi Cocoona Clinic, I booked a consultation.\nName: ${bookingResult.name}\nPhone: ${bookingResult.phone}\nEmail: ${bookingResult.email}\nTime: ${bookingResult.preferredTime}`
     : "Hi Cocoona Clinic, I'd like to ask about gynecomastia consultation.";
 
   const whatsappUrl = `https://wa.me/${CLINIC.whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
@@ -296,21 +284,6 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
             </span>
             <h3 className="text-primary font-serif text-lg sm:text-xl">Consultation Received</h3>
           </div>
-        </div>
-
-        {/* Ref ID Banner */}
-        <div className="bg-secondary/70 border border-border/80 p-3 rounded-md flex items-center justify-between">
-          <div>
-            <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">
-              Booking Reference
-            </p>
-            <p id="cq-summary-ref" className="font-mono text-base font-bold text-primary">
-              {bookingResult?.refId || "COC-XXXXXX"}
-            </p>
-          </div>
-          <span className="bg-accent/15 text-accent text-[11px] font-semibold px-2.5 py-0.5 rounded-full border border-accent/20">
-            Request Logged
-          </span>
         </div>
 
         {/* Booking Summary */}
