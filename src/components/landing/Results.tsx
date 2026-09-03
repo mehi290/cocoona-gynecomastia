@@ -182,6 +182,12 @@ export function Results() {
         </div>
       </div>
 
+      {/* 100% Patient Privacy Guaranteed Note */}
+      <div className="mt-6 flex items-center justify-center gap-2 text-xs font-semibold text-muted-foreground">
+        <ShieldCheck className="size-4 text-[#B5894B]" />
+        <span>100% Patient Privacy Guaranteed.</span>
+      </div>
+
       {/* Section CTA Block */}
       <SectionCtaBlock
         heading="Wondering what your result could look like?"

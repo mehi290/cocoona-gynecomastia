@@ -37,7 +37,7 @@ export function Cost() {
       <SectionCtaBlock
         heading="Get a price for your specific case"
         subtext="Final cost depends on grade and technique. We'll confirm yours at consultation."
-        buttonText="Get Your Personalized Private Consultation"
+        buttonText="Discuss Cost at Consultation"
         bgVariant="card"
       />
     </Section>

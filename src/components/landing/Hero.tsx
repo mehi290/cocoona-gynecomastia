@@ -37,7 +37,7 @@ export function Hero() {
             </h1>
           </div>
           <p className="text-ink-muted text-base leading-relaxed">
-            Performed personally by Dr. Sanjay, plastic surgeon and founder of Cocoona Surgery Centre. Assessment, procedure and follow-up under one roof, We care for our clients!
+            Performed personally by Dr. Sanjay, plastic surgeon and founder of Cocoona Surgery Centre. Assessment, procedure and follow-up under one roof.
           </p>
 
           <ul className="space-y-3 pt-1">

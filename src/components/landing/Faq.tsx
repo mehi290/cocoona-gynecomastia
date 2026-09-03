@@ -108,7 +108,7 @@ export function Faq() {
       {/* Section CTA Block */}
       <SectionCtaBlock
         heading="Still have questions?"
-        subtext="Ask Dr Sanjay directly at a private consultation."
+        subtext="Ask Dr. Sanjay directly at a private consultation."
         buttonText="Ask Dr. Sanjay"
         bgVariant="card"
       />
