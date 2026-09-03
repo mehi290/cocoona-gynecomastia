@@ -24,9 +24,9 @@ interface BookingData {
 }
 
 const TIME_SLOTS = [
-  "Morning (11:00 AM - 2:00 PM)",
-  "Afternoon (2:00 PM - 6:00 PM)",
-  "Evening (6:00 PM - 10:00 PM)",
+  "Morning (11:00 AM to 2:00 PM)",
+  "Afternoon (2:00 PM to 6:00 PM)",
+  "Evening (6:00 PM to 10:00 PM)",
 ];
 
 const fieldClass =
@@ -372,7 +372,7 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
               </span>
               <div>
                 <p className="font-semibold text-foreground text-[11px]">Discreet Consultation</p>
-                <p className="text-muted-foreground text-[10px]">Meet Dr. Sanjay Parashar at Al Wasl Road.</p>
+                <p className="text-muted-foreground text-[10px]">Meet Dr. Sanjay at Al Wasl Road.</p>
               </div>
             </div>
           </div>

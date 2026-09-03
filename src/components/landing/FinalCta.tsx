@@ -48,9 +48,9 @@ export function FinalCta() {
         <div className="border-ink-border mt-10 border-t pt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="inline-block rounded-md bg-white/95 p-2 border border-white/20 w-fit">
             <img
-              src="/Cocoona logo.png"
-              alt="Cocoona Centre for Aesthetic Transformation"
-              className="h-8 w-auto object-contain"
+              src="/drsanjay logo.png"
+              alt="Dr. Sanjay - Cocoona Centre for Aesthetic Transformation"
+              className="h-10 w-auto object-contain"
             />
           </div>
           <p className="text-ink-muted text-xs leading-relaxed">

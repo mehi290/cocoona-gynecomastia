@@ -1,14 +1,12 @@
 import { MapPin, Clock, Navigation } from "lucide-react";
-import reception from "@/assets/clinic-reception.jpg";
-import theatre from "@/assets/clinic-theatre.jpg";
-import consult from "@/assets/clinic-consult.jpg";
 import { CLINIC, DIRECTIONS_URL, MAP_EMBED_URL } from "@/lib/clinic";
 import { Section, SectionHeading, Rule } from "./primitives";
 
 const PHOTOS = [
-  { src: reception, alt: "Reception area of the Cocoona clinic on Al Wasl Road" },
-  { src: theatre, alt: "Accredited day surgery operating theatre at the clinic" },
-  { src: consult, alt: "Private consultation room at the clinic" },
+  { src: "/cocoona1.jpeg", alt: "Cocoona Clinic Al Wasl Road Facility 1" },
+  { src: "/cocoona2.jpeg", alt: "Cocoona Clinic Al Wasl Road Facility 2" },
+  { src: "/cocoona3.jpeg", alt: "Cocoona Clinic Al Wasl Road Facility 3" },
+  { src: "/cocoona4.jpeg", alt: "Cocoona Clinic Al Wasl Road Facility 4" },
 ];
 
 export function Clinic() {
@@ -69,7 +67,7 @@ export function Clinic() {
         </div>
       </div>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-3">
+      <div className="mt-8 grid gap-4 grid-cols-2 sm:grid-cols-4">
         {PHOTOS.map((photo) => (
           <img
             key={photo.alt}
@@ -78,7 +76,7 @@ export function Clinic() {
             width={1280}
             height={854}
             loading="lazy"
-            className="border-border h-44 w-full border object-cover"
+            className="border-border h-44 sm:h-48 w-full border object-cover rounded-lg shadow-sm transition-transform duration-300 hover:scale-[1.02]"
           />
         ))}
       </div>

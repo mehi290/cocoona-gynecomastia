@@ -100,7 +100,7 @@ function ThankYouPage() {
             </div>
             <div className="p-3 bg-secondary/30 rounded-md border border-border/40">
               <p className="font-semibold">3. Discreet Consultation</p>
-              <p className="text-muted-foreground text-xs">Meet Dr. Sanjay Parashar for your private assessment.</p>
+              <p className="text-muted-foreground text-xs">Meet Dr. Sanjay for your private assessment.</p>
             </div>
           </div>
         </div>

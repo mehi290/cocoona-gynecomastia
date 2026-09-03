@@ -1,10 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
 import { Surgeon } from "@/components/landing/Surgeon";
+import { Results } from "@/components/landing/Results";
 import { Clinic } from "@/components/landing/Clinic";
 import { Reviews } from "@/components/landing/Reviews";
 import { Glandular } from "@/components/landing/Glandular";
+import { GradeCalculator } from "@/components/landing/GradeCalculator";
 import { Procedure } from "@/components/landing/Procedure";
 import { Aftercare } from "@/components/landing/Aftercare";
 import { Cost } from "@/components/landing/Cost";
@@ -12,8 +15,9 @@ import { Suitability } from "@/components/landing/Suitability";
 import { Faq } from "@/components/landing/Faq";
 import { FinalCta } from "@/components/landing/FinalCta";
 import { StickyBar } from "@/components/landing/StickyBar";
+import { ReviewPopup } from "@/components/landing/ReviewPopup";
 
-const TITLE = "Gynecomastia Clinic Dubai | Dr Sanjay Parashar | Cocoona";
+const TITLE = "Gynecomastia Clinic Dubai | Dr Sanjay | Cocoona";
 const DESCRIPTION =
   "Gynecomastia surgery in Dubai with a consultant plastic surgeon. Al Wasl Road day surgery centre. Free private consultation, discreet care.";
 
@@ -58,7 +62,7 @@ const SCHEMA = {
     {
       "@type": "Physician",
       "@id": "#physician",
-      name: "Dr. Sanjay Parashar",
+      name: "Dr. Sanjay",
       jobTitle: "Consultant Plastic Surgeon",
       medicalSpecialty: "PlasticSurgery",
       worksFor: { "@id": "#clinic" },
@@ -98,10 +102,13 @@ export const Route = createFileRoute("/")({
 function LandingPage() {
   return (
     <main>
+      <Header />
       <Hero />
+      <Results />
       <Surgeon />
       <Reviews />
       <Glandular />
+      <GradeCalculator />
       <Procedure />
       <Aftercare />
       <Cost />
@@ -110,6 +117,7 @@ function LandingPage() {
       <Clinic />
       <FinalCta />
       <StickyBar />
+      <ReviewPopup />
     </main>
   );
 }

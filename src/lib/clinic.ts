@@ -3,7 +3,7 @@ export const CLINIC = {
   addressLine1: "Villa 898, Raaji Street, Al Wasl Road",
   addressLine2: "Dubai, United Arab Emirates",
   hours: "Open daily, 11:00 to 22:00",
-  founded: "Founded 2008",
+  founded: "Since 2005",
   rating: "4.3",
   reviewCount: "475",
   phoneNumber: "+971 56 865 5598",

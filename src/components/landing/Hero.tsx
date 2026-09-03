@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Check, Award } from "lucide-react";
 import { CLINIC } from "@/lib/clinic";
 import { ConsultForm } from "./ConsultForm";
 
@@ -10,7 +10,7 @@ const BULLETS = [
 
 export function Hero() {
   return (
-    <section id="top" className="relative bg-ink text-ink-foreground scroll-mt-6 overflow-hidden px-5 py-12 sm:px-8 md:py-20">
+    <section id="top" className="relative bg-ink text-ink-foreground scroll-mt-6 overflow-hidden px-5 py-12 sm:px-8 md:py-16">
       {/* Background Image with overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -19,39 +19,44 @@ export function Hero() {
           aria-hidden="true"
           className="h-full w-full object-cover object-right opacity-25 filter brightness-75"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/75" />
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-5xl gap-8 md:grid-cols-2 md:items-start md:gap-14">
-        {/* Left Column: Headline, Subtitle, Bullets */}
+      <div className="relative z-10 mx-auto grid w-full max-w-5xl gap-8 md:grid-cols-2 md:items-start md:gap-12">
+        {/* Left Column: Headline, Subtitle, Bullets, Trust Card */}
         <div className="space-y-6">
+          {/* Top Trust Pill */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent backdrop-blur-sm">
+            <Award className="size-3.5" />
+            <span>Voted No.1 Plastic Surgeon in UAE · {CLINIC.founded}</span>
+          </div>
+
           <div>
-            <h1 className="text-ink-foreground text-3xl sm:text-4xl md:text-5xl font-serif">
+            <h1 className="text-ink-foreground text-3xl sm:text-4xl md:text-5xl font-serif leading-tight">
               Gynecomastia Surgery in Dubai
             </h1>
           </div>
           <p className="text-ink-muted text-base leading-relaxed">
-            Performed by Dr. Sanjay Parashar, consultant plastic surgeon and founder of Cocoona, at
+            Performed personally by Dr. Sanjay, consultant plastic surgeon and founder of Cocoona, at
             our accredited day surgery centre on Al Wasl Road. Assessment, procedure and follow-up
-            under one roof, you see the surgeon, not a coordinator.
+            under one roof, you see the surgeon, not a sales coordinator.
           </p>
 
-          <ul className="space-y-3 pt-2">
+          <ul className="space-y-3 pt-1">
             {BULLETS.map((bullet) => (
-              <li key={bullet} className="flex gap-3">
+              <li key={bullet} className="flex gap-3 items-start">
                 <Check aria-hidden="true" className="text-accent mt-1 size-4 shrink-0" />
                 <span className="text-ink-foreground text-sm leading-relaxed">{bullet}</span>
               </li>
             ))}
           </ul>
 
-          <p className="border-ink-border text-ink-muted mt-7 border-t pt-5 text-xs tracking-wide sm:text-sm">
-            {CLINIC.rating} ★ from {CLINIC.reviewCount} Google reviews
-            <span className="text-accent mx-2">·</span>
-            Al Wasl Road, Dubai
-            <span className="text-accent mx-2">·</span>
-            {CLINIC.founded}
-          </p>
+          {/* Google Reviews Trust Bar */}
+          <div className="border-ink-border/80 bg-ink-border/20 backdrop-blur-sm mt-6 border rounded-xl px-4 py-2.5 inline-flex items-center">
+            <span className="font-semibold text-xs text-ink-foreground">
+              {CLINIC.reviewCount}+ Verified Patient Reviews
+            </span>
+          </div>
         </div>
 
         {/* Right Column: Consult Form */}
@@ -62,3 +67,4 @@ export function Hero() {
     </section>
   );
 }
+

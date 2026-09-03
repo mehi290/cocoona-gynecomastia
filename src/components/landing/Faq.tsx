@@ -11,7 +11,7 @@ const FAQS = [
   {
     q: "Is it glandular or fat in my case?",
     key: "TISSUE_TYPE",
-    a: "True gynecomastia involves firm glandular breast tissue, often combined with excess adipose (fatty) tissue. Pseudogynecomastia consists primarily of fat. During your private consultation, Dr. Sanjay Parashar conducts a physical examination to identify your exact tissue composition and design a custom treatment plan (excision, liposuction, or a combined procedure).",
+    a: "True gynecomastia involves firm glandular breast tissue, often combined with excess adipose (fatty) tissue. Pseudogynecomastia consists primarily of fat. During your private consultation, Dr. Sanjay conducts a physical examination to identify your exact tissue composition and design a custom treatment plan (excision, liposuction, or a combined procedure).",
   },
   {
     q: "Will it come back?",
@@ -21,7 +21,7 @@ const FAQS = [
   {
     q: "Will there be a visible scar?",
     key: "SCARRING",
-    a: "Dr. Parashar utilizes discreet micro-incisions strategically positioned along the natural perimeter of the lower areola (periareolar incision) and hidden within natural contour folds. Over time, these incisions heal into barely noticeable fine lines.",
+    a: "Dr. Sanjay utilizes discreet micro-incisions strategically positioned along the natural perimeter of the lower areola (periareolar incision) and hidden within natural contour folds. Over time, these incisions heal into barely noticeable fine lines.",
   },
   {
     q: "How long before I can return to work?",
@@ -51,7 +51,7 @@ const FAQS = [
   {
     q: "What if I am not a candidate?",
     key: "NOT_A_CANDIDATE",
-    a: "If surgery is not recommended (for instance, if symptoms stem from temporary hormonal fluctuations or medical factors), Dr. Parashar will provide candid advice on non-surgical alternatives, lifestyle adjustments, or referral to appropriate medical specialists.",
+    a: "If surgery is not recommended (for instance, if symptoms stem from temporary hormonal fluctuations or medical factors), Dr. Sanjay will provide candid advice on non-surgical alternatives, lifestyle adjustments, or referral to appropriate medical specialists.",
   },
 ];
 
