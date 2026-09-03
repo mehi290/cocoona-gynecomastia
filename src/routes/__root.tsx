@@ -213,18 +213,6 @@ function RootShell({ children }: { children: ReactNode }) {
           id="lp-portable"
           dangerouslySetInnerHTML={{ __html: PORTABLE_JS }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){
-  function post(){
-    parent.postMessage({cocoonaHeight: document.documentElement.scrollHeight}, '*');
-  }
-  window.addEventListener('load', post);
-  new ResizeObserver(post).observe(document.body);
-  setInterval(post, 1000);
-})();`,
-          }}
-        />
       </body>
     </html>
   );
