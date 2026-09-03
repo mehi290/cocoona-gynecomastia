@@ -14,7 +14,7 @@ export function Hero() {
       {/* Background Image with overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/gynecmastia hero.jpg"
+          src="/hero.jpeg"
           alt=""
           aria-hidden="true"
           className="h-full w-full object-cover object-right opacity-25 filter brightness-75"
