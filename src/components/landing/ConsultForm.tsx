@@ -39,10 +39,18 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
   const [isPickerOpen, setIsPickerOpen] = useState(false);
   const [pickerDate, setPickerDate] = useState("");
   const [pickerSlot, setPickerSlot] = useState(TIME_SLOTS[0]);
+  const [dateError, setDateError] = useState(false);
   const [bookingResult, setBookingResult] = useState<BookingData | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (!preferredTime) {
+      setIsPickerOpen(true);
+      setDateError(true);
+      return;
+    }
+
     const form = event.currentTarget;
     const formData = new FormData(form);
 
@@ -50,7 +58,7 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
     const phone = (formData.get("phone") as string) || "";
     const email = (formData.get("email") as string) || "";
     const message = (formData.get("message") as string) || "";
-    const time = preferredTime || "As soon as available";
+    const time = preferredTime;
 
     setIsSubmitting(true);
     setSendFailed(false);
@@ -108,12 +116,16 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
   }
 
   function handleConfirmPicker() {
-    const formattedDate = pickerDate
-      ? new Date(pickerDate).toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-        })
-      : "Preferred date";
+    if (!pickerDate) {
+      setDateError(true);
+      return;
+    }
+    setDateError(false);
+    const formattedDate = new Date(pickerDate).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
     setPreferredTime(`${formattedDate} · ${pickerSlot.split(" ")[0]}`);
     setIsPickerOpen(false);
   }
@@ -206,18 +218,21 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
                 htmlFor={`${idPrefix}-time`}
                 className="text-primary mb-1 block text-xs font-medium"
               >
-                Preferred date & time
+                Preferred date & time <span className="text-destructive">*</span>
               </label>
               <div className="relative">
                 <input
                   id={`${idPrefix}-time`}
                   name="preferredTime"
                   type="text"
+                  required
                   readOnly
                   value={preferredTime}
-                  placeholder="Click to pick date"
+                  placeholder="Select Date & Time *"
                   onClick={() => setIsPickerOpen(true)}
-                  className={`${fieldClass} cursor-pointer pr-9 truncate text-xs`}
+                  className={`${fieldClass} cursor-pointer pr-9 truncate text-xs ${
+                    dateError && !preferredTime ? "border-destructive ring-1 ring-destructive" : ""
+                  }`}
                 />
                 <button
                   type="button"
@@ -429,15 +444,24 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
             <div className="space-y-3 text-xs">
               <div>
                 <label className="text-primary block font-medium mb-1">
-                  Select Date
+                  Select Date <span className="text-destructive">*</span>
                 </label>
                 <input
                   type="date"
+                  required
                   min={new Date().toISOString().split("T")[0]}
                   value={pickerDate}
-                  onChange={(e) => setPickerDate(e.target.value)}
-                  className={fieldClass}
+                  onChange={(e) => {
+                    setPickerDate(e.target.value);
+                    setDateError(false);
+                  }}
+                  className={`${fieldClass} ${dateError ? "border-destructive ring-1 ring-destructive" : ""}`}
                 />
+                {dateError && (
+                  <p className="text-destructive text-[11px] mt-1 font-semibold">
+                    * Please select a date to proceed.
+                  </p>
+                )}
               </div>
 
               <div>
