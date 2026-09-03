@@ -49,6 +49,12 @@ export function Hero() {
             ))}
           </ul>
 
+          {/* Google Reviews Trust Bar */}
+          <div className="border-ink-border bg-ink-border/30 backdrop-blur-md mt-6 border rounded-xl px-4 py-2.5 inline-flex items-center shadow-sm">
+            <span className="font-bold text-sm text-ink-foreground tracking-tight">
+              {CLINIC.reviewCount}+ Verified Patient Reviews
+            </span>
+          </div>
         </div>
 
         {/* Right Column: Consult Form */}
