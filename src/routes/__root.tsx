@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { FORM_ENDPOINT } from "@/lib/clinic";
 
 import appCss from "../styles.css?url";
 
@@ -102,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 const PORTABLE_JS = `
 (function() {
   // CONFIGURABLE ENDPOINT CONSTANT
-  var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbzadbFo2P7AZbkONTe5tqbFAA1I31k5urMdUf6bt3u5wIAPjrffjlt7D_653fMKYESX8w/exec";
+  var FORM_ENDPOINT = "${FORM_ENDPOINT}";
 
   function isReactActive() {
     return !!(window.__REACT_HYDRATED__ || document.documentElement.hasAttribute("data-react-hydrated"));

@@ -1,3 +1,6 @@
+export const FORM_ENDPOINT =
+  "https://script.google.com/macros/s/AKfycbzadbFo2P7AZbkONTe5tqbFAA1I31k5urMdUf6bt3u5wIAPjrffjlt7D_653fMKYESX8w/exec";
+
 export const CLINIC = {
   name: "Cocoona Centre for Aesthetic Transformation",
   addressLine1: "Villa 898, Raaji Street, Al Wasl Road",
@@ -9,7 +12,7 @@ export const CLINIC = {
   phoneNumber: "+971 56 865 5598",
   phoneHref: "tel:+971568655598",
   whatsappNumber: "971568655598",
-  formEndpoint: "https://script.google.com/macros/s/AKfycbzadbFo2P7AZbkONTe5tqbFAA1I31k5urMdUf6bt3u5wIAPjrffjlt7D_653fMKYESX8w/exec",
+  formEndpoint: FORM_ENDPOINT,
   mapsQuery: "Cocoona Centre for Aesthetic Transformation, Al Wasl Road, Dubai",
 } as const;
 

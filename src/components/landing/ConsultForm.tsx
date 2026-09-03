@@ -10,7 +10,7 @@ import {
   MapPin,
   Navigation,
 } from "lucide-react";
-import { CLINIC, DIRECTIONS_URL } from "@/lib/clinic";
+import { CLINIC, DIRECTIONS_URL, FORM_ENDPOINT } from "@/lib/clinic";
 import { WhatsAppButton } from "./WhatsAppButton";
 
 interface BookingData {
@@ -35,6 +35,7 @@ const fieldClass =
 export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [sendFailed, setSendFailed] = useState(false);
   const [preferredTime, setPreferredTime] = useState("");
   const [isPickerOpen, setIsPickerOpen] = useState(false);
   const [pickerDate, setPickerDate] = useState("");
@@ -63,6 +64,7 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
     const time = preferredTime || "As soon as available";
 
     setIsSubmitting(true);
+    setSendFailed(false);
 
     const refId = generateRefId();
 
@@ -91,10 +93,9 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
       (window as any).dataLayer.push({ event: "lp_form_submit" });
     }
 
-    // POST endpoint to Google Apps Script
-    const FORM_ENDPOINT = CLINIC.formEndpoint;
+    // POST booking payload to Google Apps Script endpoint
     try {
-      fetch(FORM_ENDPOINT, {
+      await fetch(FORM_ENDPOINT, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
@@ -107,10 +108,11 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
           message,
           page: typeof window !== "undefined" ? window.location.href : "",
         }),
-      }).catch(() => {});
-    } catch {}
-
-    await new Promise((resolve) => setTimeout(resolve, 300));
+      });
+    } catch (err) {
+      console.error("Booking submission fetch failed:", err);
+      setSendFailed(true);
+    }
 
     setBookingResult(newBooking);
     setIsSubmitting(false);
@@ -385,7 +387,11 @@ export function ConsultForm({ idPrefix = "hero" }: { idPrefix?: string }) {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center gap-2 h-10 w-full rounded-md font-semibold text-xs transition-colors"
+            className={`bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center gap-2 h-11 w-full rounded-md font-semibold text-xs sm:text-sm transition-all shadow-md ${
+              sendFailed
+                ? "ring-4 ring-[#25D366]/40 scale-[1.02] font-bold text-sm bg-[#22c55e]"
+                : ""
+            }`}
           >
             <MessageSquare className="size-4 fill-white" />
             Send Details directly to WhatsApp
