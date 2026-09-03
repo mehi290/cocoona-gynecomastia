@@ -28,6 +28,12 @@ function ThankYouPage() {
 
   useEffect(() => {
     try {
+      window.parent.postMessage({ type: "cocoona_lead" }, "*");
+    } catch (e) {}
+  }, []);
+
+  useEffect(() => {
+    try {
       const stored = localStorage.getItem("cocoona_last_booking");
       if (stored) {
         const parsed = JSON.parse(stored);
