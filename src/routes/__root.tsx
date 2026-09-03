@@ -7,7 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { type ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 
@@ -99,6 +99,158 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+const PORTABLE_JS = `
+(function() {
+  // CONFIGURABLE ENDPOINT CONSTANT
+  var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbzadbFo2P7AZbkONTe5tqbFAA1I31k5urMdUf6bt3u5wIAPjrffjlt7D_653fMKYESX8w/exec";
+
+  function isReactActive() {
+    return !!(window.__REACT_HYDRATED__ || document.documentElement.hasAttribute("data-react-hydrated"));
+  }
+
+  function generateRefId() {
+    var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    var res = "";
+    for (var i = 0; i < 6; i++) {
+      res += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return "COC-" + res;
+  }
+
+  function handleFormSubmit(e) {
+    if (isReactActive()) return;
+
+    var form = e.target.closest("form#cq-form, form");
+    if (!form) return;
+
+    var isTarget = form.id === "cq-form" || form.querySelector('input[name="name"]');
+    if (!isTarget) return;
+
+    e.preventDefault();
+
+    var formData = new FormData(form);
+    var name = formData.get("name") || "";
+    var phone = formData.get("phone") || "";
+    var email = formData.get("email") || "";
+    var message = formData.get("message") || "";
+    var timeInput = form.querySelector('input[name="preferredTime"]');
+    var preferredTime = (timeInput && timeInput.value) ? timeInput.value : "As soon as available";
+
+    var refId = generateRefId();
+
+    var booking = {
+      refId: refId,
+      name: name,
+      phone: phone,
+      email: email,
+      preferredTime: preferredTime,
+      message: message,
+      createdAt: new Date().toLocaleString()
+    };
+
+    try {
+      var existing = JSON.parse(localStorage.getItem("cocoona_bookings") || "[]");
+      localStorage.setItem("cocoona_bookings", JSON.stringify([booking].concat(existing)));
+      localStorage.setItem("cocoona_last_booking", JSON.stringify(booking));
+    } catch (err) {}
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: "lp_form_submit" });
+
+    try {
+      fetch(FORM_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({
+          ref: refId,
+          name: name,
+          phone: phone,
+          email: email,
+          preferredTime: preferredTime,
+          message: message,
+          page: window.location.href
+        })
+      }).catch(function() {});
+    } catch (err) {}
+
+    var refEl = document.getElementById("cq-summary-ref");
+    if (refEl) refEl.textContent = refId;
+
+    var nameEl = document.getElementById("cq-summary-name");
+    if (nameEl) nameEl.textContent = name;
+
+    var phoneEl = document.getElementById("cq-summary-phone");
+    if (phoneEl) phoneEl.textContent = phone;
+
+    var emailEl = document.getElementById("cq-summary-email");
+    if (emailEl) emailEl.textContent = email;
+
+    var slotEl = document.getElementById("cq-summary-slot");
+    if (slotEl) slotEl.textContent = preferredTime;
+
+    var waBtn = document.getElementById("cq-whatsapp-btn");
+    if (waBtn) {
+      var msg = "Hi Cocoona Clinic, I booked a consultation (Ref: " + refId + ").\\nName: " + name + "\\nPhone: " + phone + "\\nEmail: " + email + "\\nTime: " + preferredTime;
+      waBtn.href = "https://wa.me/971568655598?text=" + encodeURIComponent(msg);
+    }
+
+    var formContainer = document.getElementById("cq-form-container");
+    if (formContainer) {
+      formContainer.setAttribute("hidden", "");
+      formContainer.classList.add("hidden");
+    }
+
+    var formEl = document.getElementById("cq-form") || form;
+    if (formEl) {
+      formEl.setAttribute("hidden", "");
+      formEl.classList.add("hidden");
+      formEl.style.display = "none";
+    }
+
+    var tyEl = document.getElementById("cq-thankyou");
+    if (tyEl) {
+      tyEl.removeAttribute("hidden");
+      tyEl.classList.remove("hidden");
+      tyEl.style.display = "block";
+    }
+  }
+
+  function handleFaqClick(e) {
+    if (isReactActive()) return;
+
+    var btn = e.target.closest(".faq-trigger, [aria-controls^='faq-answer-']");
+    if (!btn) return;
+
+    var targetId = btn.getAttribute("aria-controls");
+    if (!targetId) return;
+
+    var panel = document.getElementById(targetId);
+    if (!panel) return;
+
+    var isExpanded = btn.getAttribute("aria-expanded") === "true";
+    if (isExpanded) {
+      btn.setAttribute("aria-expanded", "false");
+      btn.setAttribute("data-state", "closed");
+      panel.setAttribute("hidden", "");
+      panel.setAttribute("data-state", "closed");
+      var svg = btn.querySelector("svg");
+      if (svg) svg.setAttribute("data-state", "closed");
+    } else {
+      btn.setAttribute("aria-expanded", "true");
+      btn.setAttribute("data-state", "open");
+      panel.removeAttribute("hidden");
+      panel.setAttribute("data-state", "open");
+      var svg = btn.querySelector("svg");
+      if (svg) svg.setAttribute("data-state", "open");
+    }
+  }
+
+  document.addEventListener("submit", handleFormSubmit);
+  document.addEventListener("click", handleFaqClick);
+})();
+`;
+
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
@@ -108,6 +260,10 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Scripts />
+        <script
+          id="lp-portable"
+          dangerouslySetInnerHTML={{ __html: PORTABLE_JS }}
+        />
       </body>
     </html>
   );
@@ -116,6 +272,13 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      (window as any).__REACT_HYDRATED__ = true;
+      document.documentElement.setAttribute("data-react-hydrated", "true");
+    }
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
@@ -123,3 +286,4 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
+
