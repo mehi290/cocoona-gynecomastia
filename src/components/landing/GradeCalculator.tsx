@@ -113,7 +113,7 @@ export function GradeCalculator() {
           </div>
           <a
             href="#top"
-            className="bg-primary text-primary-foreground hover:bg-ink inline-flex h-9 items-center justify-center gap-1.5 rounded-md px-4 text-xs font-semibold transition-colors shrink-0"
+            className="bg-[#B5894B] text-white hover:bg-[#9C733B] inline-flex h-9 items-center justify-center gap-1.5 rounded-md px-4 text-xs font-semibold transition-colors shrink-0 shadow-sm"
           >
             <span>Discuss Grade at Consult</span>
             <ArrowRight className="size-3.5" />
@@ -131,7 +131,7 @@ export function GradeCalculator() {
             <ul className="space-y-2 text-xs text-foreground">
               {activeGrade.features.map((feature) => (
                 <li key={feature} className="flex items-start gap-2">
-                  <CheckCircle className="size-3.5 text-accent shrink-0 mt-0.5" />
+                  <CheckCircle className="size-3.5 text-[#B5894B] shrink-0 mt-0.5" />
                   <span>{feature}</span>
                 </li>
               ))}
@@ -157,7 +157,7 @@ export function GradeCalculator() {
         {/* Footer Note */}
         <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-muted-foreground border-t border-border/60">
           <p>
-            *Grade is officially confirmed during physical examination by Consultant Plastic Surgeon Dr. Sanjay.
+            *Grade is officially confirmed during physical examination.
           </p>
           <a
             href="#top"

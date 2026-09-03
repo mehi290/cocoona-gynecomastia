@@ -19,7 +19,7 @@ export function Section({
       id={id}
       aria-labelledby={ariaLabelledBy}
       className={cn(
-        "scroll-mt-6 px-5 py-14 sm:px-8 md:py-20",
+        "scroll-mt-6 px-5 py-8 sm:px-8 md:py-10",
         tone === "muted" && "bg-secondary",
         tone === "ink" && "bg-ink text-ink-foreground",
         className,

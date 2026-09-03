@@ -10,7 +10,7 @@ export function FinalCta() {
     <section
       id="book"
       aria-labelledby="book-heading"
-      className="bg-ink text-ink-foreground scroll-mt-6 px-5 py-14 pb-24 sm:px-8 md:py-20 md:pb-20"
+      className="bg-ink text-ink-foreground scroll-mt-6 px-5 py-8 pb-20 sm:px-8 md:py-10 md:pb-16"
     >
       <div className="mx-auto w-full max-w-5xl">
         <SectionHeading id="book-heading" tone="ink">
@@ -19,7 +19,7 @@ export function FinalCta() {
         <Rule tone="ink" />
 
         <p className="text-ink-muted max-w-2xl text-base leading-relaxed">
-          Free private consultation at our Al Wasl Road clinic. You will know exactly where you
+          Private consultation at our Al Wasl Road clinic. You will know exactly where you
           stand.
         </p>
 

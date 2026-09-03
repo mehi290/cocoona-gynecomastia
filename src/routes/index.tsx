@@ -19,7 +19,7 @@ import { ReviewPopup } from "@/components/landing/ReviewPopup";
 
 const TITLE = "Gynecomastia Clinic Dubai | Dr Sanjay | Cocoona";
 const DESCRIPTION =
-  "Gynecomastia surgery in Dubai with a consultant plastic surgeon. Al Wasl Road day surgery centre. Free private consultation, discreet care.";
+  "Gynecomastia surgery in Dubai with a consultant plastic surgeon. Al Wasl Road day surgery centre. Private consultation, discreet care.";
 
 const SCHEMA = {
   "@context": "https://schema.org",

@@ -137,7 +137,7 @@ export function Reviews() {
               controls
               playsInline
               preload="metadata"
-              className="h-full w-full object-cover rounded-2xl"
+              className="h-full w-full object-contain rounded-2xl bg-black"
             >
               Your browser does not support the video tag.
             </video>
