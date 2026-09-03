@@ -3,8 +3,8 @@ import { CLINIC } from "@/lib/clinic";
 import { ConsultForm } from "./ConsultForm";
 
 const BULLETS = [
-  "Free private consultation, you'll be told your grade and what's realistic",
-  "Day surgery on Al Wasl Road, in and out the same day",
+  "Private consultation, transparent & realistic information upfront",
+  "Day surgery, in and out the same day",
   "Follow-up scheduled before you leave, no chasing",
 ];
 
@@ -37,9 +37,7 @@ export function Hero() {
             </h1>
           </div>
           <p className="text-ink-muted text-base leading-relaxed">
-            Performed personally by Dr. Sanjay, consultant plastic surgeon and founder of Cocoona, at
-            our accredited day surgery centre on Al Wasl Road. Assessment, procedure and follow-up
-            under one roof, you see the surgeon, not a sales coordinator.
+            Performed personally by Dr. Sanjay, plastic surgeon and founder of Cocoona Surgery Centre. Assessment, procedure and follow-up under one roof, We care for our clients!
           </p>
 
           <ul className="space-y-3 pt-1">
