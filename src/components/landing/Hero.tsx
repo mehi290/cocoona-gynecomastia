@@ -17,9 +17,9 @@ export function Hero() {
           src="/hero.jpeg"
           alt=""
           aria-hidden="true"
-          className="h-full w-full object-cover object-right opacity-25 filter brightness-75"
+          className="h-full w-full object-cover object-center opacity-70 filter brightness-90"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/75 to-ink/40" />
       </div>
 
       <div className="relative z-10 mx-auto grid w-full max-w-5xl gap-8 md:grid-cols-2 md:items-start md:gap-12">
