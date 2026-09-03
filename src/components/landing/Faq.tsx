@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Section, SectionHeading, Rule } from "./primitives";
+import { SectionCtaBlock } from "./SectionCtaBlock";
 
 const FAQS = [
   {
@@ -103,6 +104,14 @@ export function Faq() {
           );
         })}
       </div>
+
+      {/* Section CTA Block */}
+      <SectionCtaBlock
+        heading="Still have questions?"
+        subtext="Ask Dr Sanjay directly at a private consultation."
+        buttonText="Ask Dr. Sanjay"
+        bgVariant="card"
+      />
     </Section>
   );
 }

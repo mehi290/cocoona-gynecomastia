@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { Section, SectionHeading, Rule } from "./primitives";
 import { ShieldCheck, CalendarCheck, ChevronLeft, ChevronRight } from "lucide-react";
+import { SectionCtaBlock } from "./SectionCtaBlock";
 
 const CASES = [
   {
@@ -181,22 +182,13 @@ export function Results() {
         </div>
       </div>
 
-      {/* Discretion Note & Call to Action */}
-      <div className="mt-8 border-border bg-secondary/40 border rounded-xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-3">
-          <ShieldCheck className="size-5 text-[#B5894B] shrink-0" />
-          <p className="text-xs font-semibold text-primary leading-relaxed">
-            100% Patient Privacy Guaranteed.
-          </p>
-        </div>
-        <a
-          href="#top"
-          className="bg-[#B5894B] text-white hover:bg-[#9C733B] inline-flex h-10 items-center justify-center gap-2 rounded-md px-5 text-xs font-semibold tracking-wide shrink-0 transition-colors"
-        >
-          <CalendarCheck className="size-4" />
-          Book Your Consultation
-        </a>
-      </div>
+      {/* Section CTA Block */}
+      <SectionCtaBlock
+        heading="Wondering what your result could look like?"
+        subtext="A private assessment tells you what's realistic for your chest type."
+        buttonText="See If You're a Candidate"
+        bgVariant="card"
+      />
     </Section>
   );
 }

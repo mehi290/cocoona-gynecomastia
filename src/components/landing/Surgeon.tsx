@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Section, SectionHeading, Rule } from "./primitives";
 import { Award, CheckCircle2 } from "lucide-react";
+import { SectionCtaBlock } from "./SectionCtaBlock";
 
 const SURGEON_IMAGES = [
   "/dr.sanjay background1.jpeg",
@@ -106,6 +107,13 @@ export function Surgeon() {
           </div>
         </div>
       </div>
+
+      {/* Section CTA Block - Spans Full Section Width */}
+      <SectionCtaBlock
+        heading="Consult directly with Dr. Sanjay"
+        buttonText="Book with Dr. Sanjay"
+        bgVariant="secondary"
+      />
     </Section>
   );
 }

@@ -155,17 +155,10 @@ export function GradeCalculator() {
         </div>
 
         {/* Footer Note */}
-        <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-muted-foreground border-t border-border/60">
+        <div className="pt-3 border-t border-border/60 text-xs text-muted-foreground">
           <p>
             *Grade is officially confirmed during physical examination.
           </p>
-          <a
-            href="#top"
-            className="text-accent hover:underline font-semibold inline-flex items-center gap-1 shrink-0"
-          >
-            <CalendarCheck className="size-3.5" />
-            Book Consultation →
-          </a>
         </div>
       </div>
     </Section>
