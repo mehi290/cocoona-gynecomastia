@@ -55,6 +55,16 @@ export function Hero() {
               {CLINIC.reviewCount}+ Verified Patient Reviews
             </span>
           </div>
+
+          {/* CTA Button */}
+          <div className="pt-2">
+            <a
+              href="#consultation"
+              className="inline-flex items-center justify-center rounded-xl bg-accent px-6 py-3.5 text-sm sm:text-base font-bold text-accent-foreground shadow-lg transition-all duration-200 hover:scale-[1.02] hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+            >
+              Book your private consultation now
+            </a>
+          </div>
         </div>
 
         {/* Right Column: Consult Form */}
