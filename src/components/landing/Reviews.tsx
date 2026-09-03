@@ -112,17 +112,9 @@ export function Reviews() {
         </div>
 
         {/* Rating Summary Badge */}
-        <div className="mb-4 flex items-center gap-3 bg-secondary/50 border border-border px-4 py-2 rounded-full w-fit">
-          <div className="flex items-center gap-1 text-amber-500 font-bold text-xs">
-            <span>{CLINIC.rating}</span>
-            <div className="flex gap-0.5">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="size-3.5 fill-amber-500 text-amber-500" />
-              ))}
-            </div>
-          </div>
-          <span className="text-muted-foreground text-xs border-l border-border pl-3 font-semibold">
-            {CLINIC.reviewCount}+ Google reviews
+        <div className="mb-4 flex items-center gap-2.5 bg-card/90 text-card-foreground border border-border px-4 py-2 rounded-xl w-fit shadow-sm">
+          <span className="font-bold text-xs sm:text-sm tracking-tight">
+            {CLINIC.reviewCount}+ Verified Patient Reviews
           </span>
         </div>
       </div>
