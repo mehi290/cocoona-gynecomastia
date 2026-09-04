@@ -242,11 +242,16 @@ function RootComponent() {
   useEffect(() => {
     function onClick(e: MouseEvent) {
       const target = e.target as Element | Node | null;
-      const el = target && "closest" in target ? (target as Element) : target?.parentElement;
-      const link = el?.closest?.('a[href^="tel:"]');
-      if (!link) return;
+      const targetEl = target && "closest" in target ? (target as Element) : target?.parentElement;
+      const el = targetEl?.closest?.('a[href]');
+      if (!el) return;
+      const href = el.getAttribute("href") || "";
       try {
-        window.parent.postMessage({ type: "cocoona_call" }, "*");
+        if (href.startsWith("tel:")) {
+          window.parent.postMessage({ type: "cocoona_call" }, "*");
+        } else if (/wa\.me|whatsapp/i.test(href)) {
+          window.parent.postMessage({ type: "cocoona_whatsapp" }, "*");
+        }
       } catch (err) {}
     }
     document.addEventListener("click", onClick, true);
