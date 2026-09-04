@@ -195,8 +195,19 @@ const PORTABLE_JS = `
     }
   }
 
+  function handleCallClick(e) {
+    if (isReactActive()) return;
+
+    var link = e.target.closest('a[href^="tel:"]');
+    if (!link) return;
+    try {
+      window.parent.postMessage({ type: "cocoona_call" }, "*");
+    } catch (err) {}
+  }
+
   document.addEventListener("submit", handleFormSubmit);
   document.addEventListener("click", handleFaqClick);
+  document.addEventListener("click", handleCallClick, true);
 })();
 `;
 
@@ -226,6 +237,19 @@ function RootComponent() {
       (window as any).__REACT_HYDRATED__ = true;
       document.documentElement.setAttribute("data-react-hydrated", "true");
     }
+  }, []);
+
+  useEffect(() => {
+    function onClick(e: MouseEvent) {
+      const target = e.target as HTMLElement | null;
+      const link = target?.closest?.('a[href^="tel:"]');
+      if (!link) return;
+      try {
+        window.parent.postMessage({ type: "cocoona_call" }, "*");
+      } catch (err) {}
+    }
+    document.addEventListener("click", onClick, true);
+    return () => document.removeEventListener("click", onClick, true);
   }, []);
 
   return (
