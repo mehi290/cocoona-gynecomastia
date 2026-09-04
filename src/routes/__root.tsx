@@ -241,8 +241,9 @@ function RootComponent() {
 
   useEffect(() => {
     function onClick(e: MouseEvent) {
-      const target = e.target as HTMLElement | null;
-      const link = target?.closest?.('a[href^="tel:"]');
+      const target = e.target as Element | Node | null;
+      const el = target && "closest" in target ? (target as Element) : target?.parentElement;
+      const link = el?.closest?.('a[href^="tel:"]');
       if (!link) return;
       try {
         window.parent.postMessage({ type: "cocoona_call" }, "*");
